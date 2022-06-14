@@ -30,12 +30,6 @@ public class Cart {
     }
 
     public MovieID[] showLastAdded() {
-        if (numberOfRecentMovie < 0) {
-            this.numberOfRecentMovie = 0;
-        }
-        if (numberOfRecentMovie > this.cart.length){
-            this.numberOfRecentMovie = this.cart.length;
-        }
         MovieID[] showLast = new MovieID[numberOfRecentMovie];
         for (int i = 0; i < numberOfRecentMovie; i++) {
             int index = this.cart.length - i - 1;

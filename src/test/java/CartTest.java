@@ -50,26 +50,4 @@ public class CartTest {
 
         Assertions.assertArrayEquals(expected, actual);
     }
-
-    @Test
-    public void findRecentInvalidNumber() {
-        Cart addMovie = new Cart(-5);
-        addMovie.addToCart(movie1);
-        addMovie.addToCart(movie2);
-        addMovie.addToCart(movie3);
-        addMovie.addToCart(movie4);
-        addMovie.addToCart(movie5);
-        addMovie.addToCart(movie6);
-        addMovie.addToCart(movie7);
-        addMovie.addToCart(movie8);
-        addMovie.addToCart(movie9);
-        addMovie.addToCart(movie10);
-        addMovie.addToCart(movie11);
-        addMovie.addToCart(movie12);
-
-        MovieID[] actual = addMovie.showLastAdded();
-        MovieID[] expected = {};
-
-        Assertions.assertArrayEquals(expected, actual);
-    }
 }
