@@ -30,7 +30,7 @@ public class CartTest {
     }
 
     @Test
-    public void findRecent5() {
+    public void showLast5AddedToCart() {
         Cart addMovie = new Cart(5);
         addMovie.addToCart(movie1);
         addMovie.addToCart(movie2);
@@ -47,6 +47,37 @@ public class CartTest {
 
         MovieID[] actual = addMovie.showLastAdded();
         MovieID[] expected = {movie12, movie11, movie10, movie9, movie8};
+
+        Assertions.assertArrayEquals(expected, actual);
+    }
+
+    @Test
+    public void showLastAddedIfCartMoviesLessThanTheLimit() {
+        Cart addMovie = new Cart();
+        addMovie.addToCart(movie1);
+        addMovie.addToCart(movie2);
+        addMovie.addToCart(movie3);
+        addMovie.addToCart(movie4);
+        addMovie.addToCart(movie5);
+        addMovie.addToCart(movie6);
+        addMovie.addToCart(movie7);
+        addMovie.addToCart(movie8);
+        addMovie.addToCart(movie9);
+
+        MovieID[] actual = addMovie.showLastAdded();
+        MovieID[] expected = {movie9, movie8, movie7, movie6, movie5, movie4, movie3, movie2, movie1, null};
+
+        Assertions.assertArrayEquals(expected, actual);
+    }
+
+    @Test
+    public void showLastAddedIfCartMoviesEqualsLimit() {
+        Cart addMovie = new Cart(2);
+        addMovie.addToCart(movie1);
+        addMovie.addToCart(movie2);
+
+        MovieID[] actual = addMovie.showLastAdded();
+        MovieID[] expected = {movie2, movie1};
 
         Assertions.assertArrayEquals(expected, actual);
     }

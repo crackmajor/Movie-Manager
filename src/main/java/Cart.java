@@ -1,15 +1,13 @@
 public class Cart {
     private int numberOfRecentMovie = 10;
+    public MovieID[] cart = new MovieID[0];
 
     public Cart() {
-
     }
 
     public Cart(int numberOfRecentMovie) {
         this.numberOfRecentMovie = numberOfRecentMovie;
     }
-
-    public MovieID[] cart = new MovieID[0];
 
     public MovieID[] addToCart(MovieID cart) {
         int length = this.cart.length + 1;
@@ -33,7 +31,9 @@ public class Cart {
         MovieID[] showLast = new MovieID[numberOfRecentMovie];
         for (int i = 0; i < numberOfRecentMovie; i++) {
             int index = this.cart.length - i - 1;
-            showLast[i] = this.cart[index];
+            if (index >= 0) {
+                showLast[i] = this.cart[index];
+            }
         }
         return showLast;
     }

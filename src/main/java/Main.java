@@ -3,6 +3,7 @@ import java.util.Arrays;
 public class Main {
 
     public static void main(String[] args) {
+        Cart addMovie = new Cart();
 
         MovieID movie1 = new MovieID(1, "Kino1", "Horror", 60);
         MovieID movie2 = new MovieID(2, "Kino2", "Horror", 61);
@@ -16,8 +17,6 @@ public class Main {
         MovieID movie10 = new MovieID(10, "Kino10", "Horror", 69);
         MovieID movie11 = new MovieID(11, "Kino11", "Horror", 70);
         MovieID movie12 = new MovieID(12, "Kino12", "Horror", 71);
-
-        Cart addMovie = new Cart();
 
         addMovie.addToCart(movie1);
         addMovie.addToCart(movie2);
