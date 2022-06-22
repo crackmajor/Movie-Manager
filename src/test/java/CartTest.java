@@ -73,7 +73,6 @@ public class CartTest {
     @Test
     public void showLastAddedIfCartMoviesEqualsLimit() {
         Cart addMovie = new Cart(2);
-        addMovie.addToCart(movie1);
         addMovie.addToCart(movie2);
         addMovie.addToCart(movie3);
 
