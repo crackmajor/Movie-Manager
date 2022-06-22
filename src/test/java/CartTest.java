@@ -65,7 +65,7 @@ public class CartTest {
         addMovie.addToCart(movie9);
 
         MovieID[] actual = addMovie.showLastAdded();
-        MovieID[] expected = {movie9, movie8, movie7, movie6, movie5, movie4, movie3, movie2, movie1, null};
+        MovieID[] expected = {movie9, movie8, movie7, movie6, movie5, movie4, movie3, movie2, movie1};
 
         Assertions.assertArrayEquals(expected, actual);
     }
@@ -75,9 +75,23 @@ public class CartTest {
         Cart addMovie = new Cart(2);
         addMovie.addToCart(movie1);
         addMovie.addToCart(movie2);
+        addMovie.addToCart(movie3);
 
         MovieID[] actual = addMovie.showLastAdded();
-        MovieID[] expected = {movie2, movie1};
+        MovieID[] expected = {movie3, movie2};
+
+        Assertions.assertArrayEquals(expected, actual);
+    }
+
+    @Test
+    public void findAllTest() {
+        Cart addMovie = new Cart();
+        addMovie.addToCart(movie1);
+        addMovie.addToCart(movie2);
+        addMovie.addToCart(movie3);
+
+        MovieID[] actual = addMovie.findAll();
+        MovieID[] expected = {movie1, movie2, movie3};
 
         Assertions.assertArrayEquals(expected, actual);
     }

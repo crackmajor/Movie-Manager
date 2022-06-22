@@ -21,19 +21,19 @@ public class Cart {
         return tmpCart;
     }
 
-    public void showAllCart() {
-        for (int i = 0; i < this.cart.length; i++) {
-            System.out.println(this.cart[i]);
-        }
+    public MovieID[] findAll() {
+        return cart;
     }
 
     public MovieID[] showLastAdded() {
-        MovieID[] showLast = new MovieID[numberOfRecentMovie];
-        for (int i = 0; i < numberOfRecentMovie; i++) {
+        int showLastIndex = numberOfRecentMovie;
+        if (numberOfRecentMovie > cart.length) {
+            showLastIndex = cart.length;
+        }
+        MovieID[] showLast = new MovieID[showLastIndex];
+        for (int i = 0; i < showLastIndex; i++) {
             int index = this.cart.length - i - 1;
-            if (index >= 0) {
-                showLast[i] = this.cart[index];
-            }
+            showLast[i] = this.cart[index];
         }
         return showLast;
     }
